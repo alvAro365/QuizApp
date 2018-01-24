@@ -63,10 +63,33 @@
     return cell;
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    int selectedRow = (int)indexPath.row;
+    
+    BOOL isTheAnswerRight = [self.questions checkAnswer:selectedRow];
+    
+    if(isTheAnswerRight){
+        
+        self.questionLabel.text = @"Correct answer :)";
+    }else {
+        
+        self.questionLabel.text = @"Wrong answer :(";
+    }
+    
+
+    
+    
+    
+    
+    
+}
+
 - (void)setViews{
     
     self.questionLabel.text = self.questions.randomQuestion;
     self.alternatives = self.questions.getAlternatives;
+
     
     
     
@@ -76,6 +99,7 @@
     [self setViews];
     
     [self.tableView reloadData];
+    
 
 
 }

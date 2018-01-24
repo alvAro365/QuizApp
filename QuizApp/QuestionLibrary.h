@@ -12,6 +12,7 @@
 
 -(NSString*) randomQuestion;
 -(NSMutableArray*) getAlternatives;
+-(BOOL) checkAnswer:(int)number;
 
 
 @end
