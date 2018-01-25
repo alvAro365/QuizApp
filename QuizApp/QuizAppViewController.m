@@ -11,7 +11,7 @@
 #import "QuestionLibrary.h"
 
 @interface QuizAppViewController ()
-@property (nonatomic) NSMutableArray *alternatives;
+@property (nonatomic) NSArray *alternatives;
 @property (nonatomic) Question *question;
 @property (nonatomic) QuestionLibrary *questions;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;

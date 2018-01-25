@@ -11,7 +11,7 @@
 @interface QuestionLibrary : NSObject
 
 -(NSString*) randomQuestion;
--(NSMutableArray*) getAlternatives;
+-(NSArray*) getAlternatives;
 -(BOOL) checkAnswer:(int)number;
 
 
