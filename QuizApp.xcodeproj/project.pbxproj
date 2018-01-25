@@ -13,7 +13,6 @@
 		240462442013B83100FC1BAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 240462422013B83100FC1BAB /* LaunchScreen.storyboard */; };
 		240462472013B83100FC1BAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 240462462013B83100FC1BAB /* main.m */; };
 		240462582013C6D100FC1BAB /* QuizAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 240462572013C6D100FC1BAB /* QuizAppViewController.m */; };
-		240462802013E24000FC1BAB /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 2404627F2013E24000FC1BAB /* Question.m */; };
 		2457B172201873F200066189 /* QuestionLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 2457B171201873F200066189 /* QuestionLibrary.m */; };
 /* End PBXBuildFile section */
 
@@ -28,8 +27,6 @@
 		240462462013B83100FC1BAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		240462562013C6D100FC1BAB /* QuizAppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuizAppViewController.h; sourceTree = "<group>"; };
 		240462572013C6D100FC1BAB /* QuizAppViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuizAppViewController.m; sourceTree = "<group>"; };
-		2404627E2013E24000FC1BAB /* Question.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
-		2404627F2013E24000FC1BAB /* Question.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		2457B170201873F200066189 /* QuestionLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionLibrary.h; sourceTree = "<group>"; };
 		2457B171201873F200066189 /* QuestionLibrary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionLibrary.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,8 +70,6 @@
 				240462462013B83100FC1BAB /* main.m */,
 				240462562013C6D100FC1BAB /* QuizAppViewController.h */,
 				240462572013C6D100FC1BAB /* QuizAppViewController.m */,
-				2404627E2013E24000FC1BAB /* Question.h */,
-				2404627F2013E24000FC1BAB /* Question.m */,
 				2457B170201873F200066189 /* QuestionLibrary.h */,
 				2457B171201873F200066189 /* QuestionLibrary.m */,
 			);
@@ -154,7 +149,6 @@
 			files = (
 				240462472013B83100FC1BAB /* main.m in Sources */,
 				2457B172201873F200066189 /* QuestionLibrary.m in Sources */,
-				240462802013E24000FC1BAB /* Question.m in Sources */,
 				240462582013C6D100FC1BAB /* QuizAppViewController.m in Sources */,
 				240462392013B83100FC1BAB /* AppDelegate.m in Sources */,
 			);

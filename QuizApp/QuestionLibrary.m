@@ -7,22 +7,16 @@
 //
 
 #import "QuestionLibrary.h"
-#import "Question.h"
+
+
 
 @interface QuestionLibrary()
 
 @property (nonatomic) NSDictionary *questions;
 @property (nonatomic) NSNumber *questionNumber;
-@property (nonatomic) NSNumber *alternativeNumber;
-@property (nonatomic) NSNumber *number2;
-@property (nonatomic) NSNumber *number3;
-@property (nonatomic) NSNumber *number4;
 @property (nonatomic) NSMutableArray *alternatives;
-@property (nonatomic) NSMutableArray *usedNumbers;
-@property (nonatomic) NSNumber *firstNumber;
-@property (nonatomic) NSNumber *secondNumber;
-@property (nonatomic) NSNumber *thirdNumber;
-@property (nonatomic) NSNumber *fourthNumber;
+@property (nonatomic) NSString *correctAnswer;
+
 
 @end
 
@@ -30,22 +24,19 @@
 @implementation QuestionLibrary
 
 - (BOOL)checkAnswer:(int)number {
-    
     BOOL isTheAnswerRight = NO;
-    if(number == 0) {
+    NSString *playersGuess = [self.alternatives objectAtIndex:number];
+    if([playersGuess isEqualToString:self.correctAnswer]) {
+        
         isTheAnswerRight = YES;
         
     }
-    
-    
     return isTheAnswerRight;
 }
 
 -(NSString*) randomQuestion{
     
     int randomQuestion = [self randomQuestionNumber];
-
-    
     self.questionNumber = [NSNumber numberWithInt:randomQuestion];
     
     self.questions = @{@1: @{@"question": @"Which is the 1th planet from the Sun?",
@@ -102,36 +93,31 @@
                        };
     
     NSString *theQuestion = self.questions[self.questionNumber][@"question"];
-    
-
-    
-    
+    self.correctAnswer = self.questions[self.questionNumber][@0];
     return theQuestion;
 }
 
 
--(NSArray*) getAlternatives {
+-(NSMutableArray*) getAlternatives {
     
-
- //   self.alternatives = [[NSMutableArray alloc] init];
-    [self randomAlternativeNumber];
-    
-    
-    NSString *alt1 = self.questions[self.questionNumber][nr1];
-    NSString *alt2 = self.questions[self.questionNumber][nr2];
-    NSString *alt3 = self.questions[self.questionNumber][nr3];
-    NSString *alt4 = self.questions[self.questionNumber][nr4];
+    NSString *alt1 = self.questions[self.questionNumber][@0];
+    NSString *alt2 = self.questions[self.questionNumber][@1];
+    NSString *alt3 = self.questions[self.questionNumber][@2];
+    NSString *alt4 = self.questions[self.questionNumber][@3];
     
     NSArray *array = @[alt1,alt2,alt3,alt4];
     
-/*
-    [self.alternatives addObject:[array objectAtIndex:self.firstNumber]];
-    [self.alternatives addObject:[array objectAtIndex:self.secondNumber]];
-    [self.alternatives addObject:[array objectAtIndex:self.thirdNumber]];
-    [self.alternatives addObject:[array objectAtIndex:self.fourthNumber]];
-*/
+    self.alternatives = array.mutableCopy;
+    
+    int count = (int)[self.alternatives count];
+    
+    for (int i = 0; i < count; ++i) {
+        int numbers = count - i;
+        int n = arc4random_uniform(numbers) + i;
+        [self.alternatives exchangeObjectAtIndex:i withObjectAtIndex:n];
+    }
 
-    return array;
+    return self.alternatives;
     
 }
 
@@ -139,24 +125,7 @@
     return arc4random_uniform(9)+1;
 }
 
--(void)randomAlternativeNumber {
-    self.firstNumber = [[NSNumber alloc] initWithInt:arc4random_uniform(3)];
-    self.secondNumber = [[NSNumber alloc] initWithInt:arc4random_uniform(3)];
-    self.thirdNumber = [[NSNumber alloc] initWithInt:arc4random_uniform(3)];
-    self.fourthNumber = [[NSNumber alloc] initWithInt:arc4random_uniform(3)];
-    
-    NSMutableArray *randomNumbers = [[NSMutableArray alloc]init];
-    
-    [randomNumbers addObject:self.firstNumber];
-    [randomNumbers addObject:self.secondNumber];
-    [randomNumbers addObject:self.thirdNumber];
-    [randomNumbers addObject:self.fourthNumber];
-    
-    for(NSNumber *number in randomNumbers) {
-        
-    }
-    
-}
+
 
 
 

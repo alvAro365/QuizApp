@@ -7,12 +7,12 @@
 //
 
 #import "QuizAppViewController.h"
-#import "Question.h"
 #import "QuestionLibrary.h"
 
+
+
 @interface QuizAppViewController ()
-@property (nonatomic) NSArray *alternatives;
-@property (nonatomic) Question *question;
+@property (nonatomic) NSMutableArray *alternatives;
 @property (nonatomic) QuestionLibrary *questions;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -24,8 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.question = [[Question alloc] init];
     self.questions = [[QuestionLibrary alloc] init];
     [self setViews];
     
@@ -66,7 +64,6 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     int selectedRow = (int)indexPath.row;
-    
     BOOL isTheAnswerRight = [self.questions checkAnswer:selectedRow];
     
     if(isTheAnswerRight){

@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <GameplayKit/GameplayKit.h>
+
 
 @interface AppDelegate ()
 
